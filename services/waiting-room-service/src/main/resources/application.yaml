@@ -1,0 +1,24 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: waiting-room-service
+  data:
+    redis:
+      host: localhost
+      port: 6379
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+
+seatlock:
+  waiting-room:
+    admit-batch-size: 50          # users admitted per event per tick
+    admit-interval: 1s
+    admission-ttl: 10m            # how long an admission token stays valid
+  admission:
+    secret: ${ADMISSION_TOKEN_SECRET:local-dev-admission-secret-change-me-0123456789}

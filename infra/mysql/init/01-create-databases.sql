@@ -1,0 +1,9 @@
+CREATE DATABASE IF NOT EXISTS booking_db;
+CREATE DATABASE IF NOT EXISTS payment_db;
+
+CREATE USER IF NOT EXISTS 'booking'@'%' IDENTIFIED BY 'booking';
+CREATE USER IF NOT EXISTS 'payment'@'%' IDENTIFIED BY 'payment';
+
+GRANT ALL PRIVILEGES ON booking_db.* TO 'booking'@'%';
+GRANT ALL PRIVILEGES ON payment_db.* TO 'payment'@'%';
+FLUSH PRIVILEGES;
